@@ -602,7 +602,7 @@ paths to limit the impact of leveldb on other activities in the system.
 
 LevelDB实现所发起的所有文件操作（以及其他操作系统调用）都通过一个`leveldb::Env`对象进行路由。复杂的客户端
 可能希望提供自己的Env实现以便更好地进行控制。 
-例如，一个应用程序可能会在文件IO路径中引入认为的延迟，以限制LevelDB对系统中其他活动的影响。
+例如，一个应用程序可能会在文件IO路径中引入人为的延迟，以限制LevelDB对系统中其他活动的影响。
 
 ```c++
 class SlowEnv : public leveldb::Env {
