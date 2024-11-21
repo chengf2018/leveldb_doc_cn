@@ -10,7 +10,7 @@ LevelDB的实现原理在本质上与单个[Bigtable tablet (section 5.3)](https
 Each database is represented by a set of files stored in a directory. There are
 several different types of files as documented below:
 
-每个数据库都由存储在一个目录中的一组文件来表示。如下文所述，存在集中不同类型的文件：
+每个数据库都由存储在一个目录中的一组文件来表示。如下文所述，存在几种不同类型的文件：
 
 ### Log files 日志文件
 
@@ -132,7 +132,7 @@ level-(L+2).
 
 The old files are discarded and the new files are added to the serving state.
 
-旧文件会被丢弃，新闻界则会被添加到服务状态中。
+旧文件会被丢弃，新文件则会被添加到服务状态中。
 
 Compactions for a particular level rotate through the key space. In more detail,
 for each level L, we remember the ending key of the last compaction at level L.
@@ -225,6 +225,7 @@ So maybe even the sharding is not necessary on modern filesystems?
 * We could open all sstables here, but it is probably better to be lazy...
 * Convert log chunk to a new level-0 sstable
 * Start directing new writes to a new log file with recovered sequence#
+
 
 * 读取CURRENT文件以找到最新提交的MANIFEST文件的名称。
 * 读取所找到的MANIFEST文件
